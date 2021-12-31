@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.calculator.databinding.FragmentMainBinding
 import com.example.myapplication.Parser
@@ -107,6 +108,10 @@ class MyFragment : Fragment() {
                         display.setText("")
                     }
                     R.id.equalsBTN -> {
+                        if(bracketsDifferance != 0){
+                            Toast.makeText(context,"incorrect brackets order",Toast.LENGTH_LONG)
+                                .show()
+                        }
                         val str: String = display.text.toString()
                         val prn = Parser().ExpressionToRPN(str)
                         val ans = Parser().RPNToAnswer(prn)
@@ -127,7 +132,26 @@ class MyFragment : Fragment() {
                     }
                 }
             }
-
+            zeroBTN.setOnClickListener(clickListener)
+            oneBTN.setOnClickListener(clickListener)
+            twoBTN.setOnClickListener(clickListener)
+            threeBTN.setOnClickListener(clickListener)
+            fourBTN.setOnClickListener(clickListener)
+            fiveBTN.setOnClickListener(clickListener)
+            sixBTN.setOnClickListener(clickListener)
+            sevenBTN.setOnClickListener(clickListener)
+            eightBTN.setOnClickListener(clickListener)
+            nineBTN.setOnClickListener(clickListener)
+            startBracketBTN.setOnClickListener(clickListener)
+            endBracketBTN.setOnClickListener(clickListener)
+            backspaceBTN.setOnClickListener(clickListener)
+            clearBTN.setOnClickListener(clickListener)
+            plusMinusBTN.setOnClickListener(clickListener)
+            pointBTN.setOnClickListener(clickListener)
+            addBTN.setOnClickListener(clickListener)
+            subtractBTN.setOnClickListener(clickListener)
+            multiplyBTN.setOnClickListener(clickListener)
+            divideBTN.setOnClickListener(clickListener)
 
         }
     }
