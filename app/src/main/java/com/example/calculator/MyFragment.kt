@@ -97,7 +97,7 @@ class MyFragment : Fragment() {
                         updateText("(")
                     }
                     R.id.endBracketBTN -> {
-                        if (bracketsDifferance < 0) bracketsCorrectness = false
+                        if (bracketsDifferance <= 0) bracketsCorrectness = false
                         bracketsDifferance--
                         updateText(")")
                     }
@@ -108,7 +108,7 @@ class MyFragment : Fragment() {
                         display.setText("")
                     }
                     R.id.equalsBTN -> {
-                        if(bracketsDifferance != 0){
+                        if(bracketsDifferance != 0 && !bracketsCorrectness){
                             Toast.makeText(context,"incorrect brackets order",Toast.LENGTH_LONG)
                                 .show()
                         }
